@@ -1,0 +1,101 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  background-color: #F57600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  max-height: 80vh;
+}
+canvas{
+  background-color: #f0f0f0;
+  display: block;
+  border-radius: 5px;
+}
+.btn{
+  cursor: pointer;
+  border: 0;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+}
+.btn:focus{
+  outline: 0;
+}
+.btn:active{
+  transform: scale(0.98);
+}
+.btn:hover{
+  background-color: #222;
+}
+.rules-btn{
+  position: absolute;
+  top:30px;
+  left:30px;
+}
+.rules{
+  position: absolute;
+  top:0;
+  left:0;
+  background: #333;
+  width: 400px;
+  padding: 20px;
+  line-height: 1.5;
+  min-height: 100vh;
+  color: #fff;
+  transform: translateX(-500px);
+  transition: transform 0.2s ease-in-out;
+}
+.rules.show{
+  transform: translateX(-10px);
+}
+
+
+/* Popup */
+.popup, .score-card{
+ position: absolute;
+ top:50%;
+ transform: translateY(-50%);
+ background-color: black;
+ color: #fff;
+ padding: 20px;
+ width: 300px;
+ height: 200px;
+ border-radius: 10px;
+ transition: all 0.5s ease-in-out;;
+}
+.popup.hide{
+transform: translateY(-700px);
+}
+.popup h1{
+  text-align: center;
+}
+.score-card{
+  position: absolute;
+  top:-200px
+}
+.score-card.show{
+  top:50%;
+  transform: translatey(-50%);
+}
+.start-game{
+ padding: 10px 20px;
+ position: absolute;
+ left:50%;
+ transform: translateX(-50%);
+ /* transform-origin: center; */
+ font-size: 20px;
+}
+.start-game:focus{
+  outline: 0;
+  
+}
+.start-game:active{
+  transform: scale(0.98) translateX(-50%);
+}
+.play-again{
+  top: 100px;
+}
