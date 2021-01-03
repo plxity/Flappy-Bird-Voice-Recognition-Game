@@ -79,9 +79,15 @@ function speechListener() {
   const recognition = new SpeechRecognition();
   recognition.lang = 'en-US';
   recognition.addEventListener('start', () => {
-    console.log('it started!');
+    console.log("Voice recognition started!")
   });
-  recognition.addEventListener('end',  recognition.start);
+  recognition.addEventListener('end',  ()=>{
+    recognition.start();
+    setTimeout(()=>{
+      bird.dx=0;
+      bird.dy=0;
+    },1000);
+  } );
 
   recognition.addEventListener('result', (e) => {
     var direction = e.results[0][0].transcript.toLocaleLowerCase();
@@ -156,7 +162,6 @@ function drawEverything() {
 function moveBird() {
   bird.x += bird.dx;
   bird.y += bird.dy;
-  console.log(bird.x,bird.y);
   if (bird.x + bird.w > canvas.width) {
     bird.x = canvas.width - bird.w;
   }
