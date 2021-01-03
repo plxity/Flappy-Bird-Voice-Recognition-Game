@@ -2,7 +2,8 @@
 This is a fun project made with VanillaJS.
 
 ## Demo
-<!-- ![BreakOut](./breakout.gif) -->
+The demo does not look smooth because of GIF. You can play this game at - 
+![Voice Flappy](./demo.gif)
 
 ## Tech Stack
  - HTML
