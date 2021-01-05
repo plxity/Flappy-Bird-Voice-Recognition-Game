@@ -11,6 +11,7 @@ const ctx = canvas.getContext('2d');
 
 
 // start recognition
+const ObstaclesColor = ['#FAA307','#663100','#370617', '#6A040F', '#d00000', '#FFBA08', '#03071E' , '#9D0208'];
 const bird = {
   w: 40,
   h: 40,
@@ -44,9 +45,10 @@ setInterval(() => {
   var randomGap = Math.floor(
     Math.random() * (Obstacles.maxGap - Obstacles.minGap + 1) + Obstacles.minGap
   );
+  var color = ObstaclesColor[Math.floor(Math.random() * ObstaclesColor.length)]
   var randomHeightBelow = canvas.height - randomHeightAbove - randomGap;
-  obstacles.push({ ...Obstacles, randomHeightAbove, randomHeightBelow });
-}, 6000);
+  obstacles.push({ ...Obstacles, randomHeightAbove, randomHeightBelow, color });
+}, 3000);
 
 setInterval(() => {
   score++;
@@ -86,7 +88,7 @@ function speechListener() {
     setTimeout(()=>{
       bird.dx=0;
       bird.dy=0;
-    },1000);
+    },500);
   } );
 
   recognition.addEventListener('result', (e) => {
@@ -122,7 +124,7 @@ function drawObstacles() {
       obstacles[i].w,
       obstacles[i].randomHeightBelow
     );
-    ctx.fillStyle = '#663100';
+    ctx.fillStyle = `${obstacles[i].color}`
     ctx.fill();
     ctx.closePath();
   }
